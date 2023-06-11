@@ -10,6 +10,17 @@ dependencies:
   flutter:
     sdk: flutter
 
+  
+  bloc: ^8.0.3
+  flutter_bloc: ^8.0.1
+  equatable: ^2.0.3
+
+  dio: ^4.0.6
+  logging: ^1.0.2
+
+  cupertino_icons: ^1.0.2
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
