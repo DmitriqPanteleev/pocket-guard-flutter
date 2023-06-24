@@ -1,23 +1,38 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/scheduler.dart';
 
-void main() {
-  runApp(const MainApp());
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:pocket_guard_flutter_app/utils/common/error_handler.dart';
+
+void main(final void _) => runZonedGuarded(_body, _onError);
+
+Future<void> _body() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  timeDilation = 2.5;
+
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      systemNavigationBarColor: Colors.transparent,
+      systemNavigationBarDividerColor: Colors.transparent,
+    ),
+  );
+
+  await ScreenUtil.ensureScreenSize();
+
+  return runApp(const MaterialApp(
+    home: Text(""), // TODO: пока не завезли
+  ));
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+void _onError(final Object error, final StackTrace stackTrace) =>
+    ErrorHandler.recordError(error, stackTrace);
 
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
-    );
-  }
-}
 
 /* ПО РАЗРАБОТКЕ 
 1. сами экраны распределяются по папкам в путь data/ui/{название модуля}
