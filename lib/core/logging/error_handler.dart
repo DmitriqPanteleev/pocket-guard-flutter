@@ -6,7 +6,6 @@ import 'package:logger/logger.dart';
 final class ErrorHandler {
   factory ErrorHandler() {
     if (!_isInitialized) {
-      _isInitialized = true;
       _initThis();
     }
     return _this;
@@ -30,6 +29,7 @@ final class ErrorHandler {
   @protected
   static void _initThis() {
     FlutterError.onError = _recordFlutterError;
+    _isInitialized = true;
   }
 
   @protected

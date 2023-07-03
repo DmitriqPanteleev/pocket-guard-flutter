@@ -1,4 +1,4 @@
-export 'presenter/presenter.dart';
-export 'presenter/model.dart';
+export 'presenter.dart';
+export 'model.dart';
 
 export 'extensions.dart';

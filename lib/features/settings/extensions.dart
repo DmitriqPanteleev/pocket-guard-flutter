@@ -15,6 +15,7 @@ extension SettingsCubitToggleX on settings.Presenter {
   void toggleBrightness() => brightness = brightness.toggled;
 }
 
+@protected
 const _default =
     settings.Model(locale: Locale('ru', 'RU'), brightness: Brightness.dark);
 
