@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:overlay_support/overlay_support.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'package:pocket_guard_flutter_app/core/ui/ui.dart' as ui;
 import 'package:pocket_guard_flutter_app/core/theme/theme.dart' as theme;
 
 import 'package:pocket_guard_flutter_app/features/settings/settings.dart'
@@ -22,8 +23,6 @@ final class App extends StatelessWidget {
       );
 }
 
-const designSize = Size(375, 812);
-
 @immutable
 final class AppView extends StatelessWidget {
   const AppView({super.key});
@@ -36,7 +35,7 @@ final class AppView extends StatelessWidget {
           state.brightness.asSystemUiOverlayStyle,
         ),
         builder: (final context, final state) => ScreenUtilInit(
-          designSize: designSize,
+          designSize: ui.designSize,
           builder: (final context, final child) => OverlaySupport.global(
             child: MaterialApp(
               theme: theme.light,

@@ -13,7 +13,7 @@ dependencies:
     # Logger
     logger: ^1.4.0
 
-    # Splash
+    # Splash screen
     app_runner: ^2.2.0+1
 
     # Local data storage
