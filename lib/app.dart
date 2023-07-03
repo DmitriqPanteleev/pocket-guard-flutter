@@ -47,5 +47,4 @@ final class AppView extends StatelessWidget {
           child: const home.View(),
         ),
       );
-
 }
