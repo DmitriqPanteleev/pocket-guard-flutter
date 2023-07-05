@@ -10,6 +10,11 @@ dependencies:
     flutter:
         sdk: flutter
 
+    # Internationalization
+    flutter_localizations:
+        sdk: flutter
+    intl: any
+
     # Logger
     logger: ^1.4.0
 

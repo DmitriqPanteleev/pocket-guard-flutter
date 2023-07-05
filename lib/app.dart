@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:overlay_support/overlay_support.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:pocket_guard_flutter_app/core/localization/localization.dart';
 
 import 'package:pocket_guard_flutter_app/core/ui/ui.dart' as ui;
 import 'package:pocket_guard_flutter_app/core/theme/theme.dart' as theme;
@@ -38,6 +40,13 @@ final class AppView extends StatelessWidget {
           designSize: ui.designSize,
           builder: (final context, final child) => OverlaySupport.global(
             child: MaterialApp(
+              localizationsDelegates: [
+                L.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+              ],
+              supportedLocales: const [L.en, L.ru],
               theme: theme.light,
               darkTheme: theme.dark,
               themeMode: state.brightness.asThemeMode,
