@@ -2,10 +2,18 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import 'package:pocket_guard_flutter_app/core/core.dart';
 
 class FilledButton extends StatelessWidget {
-  const FilledButton({super.key});
+  const FilledButton({
+    required this.text,
+    required this.onPressed,
+    super.key,
+  });
+
+  final String text;
+  final VoidCallback? onPressed;
 
   @override
   Widget build(final BuildContext context) =>
@@ -26,28 +34,29 @@ class FilledButton extends StatelessWidget {
             const Size(double.maxFinite, double.minPositive),
           ),
         ),
-        onPressed: () {}, // TODO(Ars): implement navigation to ...
+        onPressed: onPressed,
         child: Padding(
           padding: const EdgeInsets.all(12),
           child: Text(
-            'Войти',
+            text,
+            style: context.textTheme?.bodySmall,
+          ),
+        ),
+      );
+
+  CupertinoButton _cupertinoButton(final BuildContext context) =>
+      CupertinoButton(
+        borderRadius: BorderRadius.circular(10),
+        color: context.palette?.primary,
+        pressedOpacity: 0.2,
+        onPressed: onPressed,
+        child: SizedBox(
+          width: double.maxFinite,
+          child: Text(
+            text,
+            textAlign: TextAlign.center,
             style: context.textTheme?.bodySmall,
           ),
         ),
       );
 }
-
-CupertinoButton _cupertinoButton(final BuildContext context) => CupertinoButton(
-      borderRadius: BorderRadius.circular(10),
-      color: context.palette?.primary,
-      pressedOpacity: 0.2,
-      child: SizedBox(
-        width: double.maxFinite,
-        child: Text(
-          L.of(context).login,
-          textAlign: TextAlign.center,
-          style: context.textTheme?.bodySmall,
-        ),
-      ),
-      onPressed: () {}, // TODO(Ars): implement navigation to ...
-    );
