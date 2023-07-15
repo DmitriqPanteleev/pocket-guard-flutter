@@ -12,7 +12,8 @@ import 'package:pocket_guard_flutter_app/core/theme/theme.dart' as theme;
 
 import 'package:pocket_guard_flutter_app/features/settings/settings.dart'
     as settings;
-import 'package:pocket_guard_flutter_app/features/home/home.dart' as home;
+// import 'package:pocket_guard_flutter_app/features/home/home.dart' as home;
+import 'package:pocket_guard_flutter_app/features/start/start.dart' as start;
 
 @immutable
 final class App extends StatelessWidget {
@@ -40,6 +41,7 @@ final class AppView extends StatelessWidget {
           designSize: ui.designSize,
           builder: (final context, final child) => OverlaySupport.global(
             child: MaterialApp(
+              debugShowCheckedModeBanner: false,
               localizationsDelegates: [
                 L.delegate,
                 GlobalMaterialLocalizations.delegate,
@@ -53,7 +55,7 @@ final class AppView extends StatelessWidget {
               home: child,
             ),
           ),
-          child: const home.View(),
+          child: const start.View(),
         ),
       );
 }
